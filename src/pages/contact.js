@@ -2,10 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 import {Layout} from "../components";
 import Title from "../components/Title";
+import SEO from "../components/seo";
 
 const ContactPage = () => {
   return (
           <Wrapper>
+            <SEO title="Contact" description="Contact page"/>
               <Layout>
                   <Title title="Contact" />
                   <div className="section-center">

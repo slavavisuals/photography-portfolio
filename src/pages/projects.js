@@ -2,12 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import { Layout, Projects, Algolia } from "../components"
+import SEO from "../components/seo";
 
 const ProjectsPage = ({data}) => {
   //console.log(data);
   const {allAirtable:{nodes:projects}} = data;
   return (
     <Wrapper>
+      <SEO title="Projects" description="Projects page"/>
       <Layout>
         <Projects title="photo projects" projects={projects} page />
       </Layout>

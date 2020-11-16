@@ -15,6 +15,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://slavavisuals.com',
+        sitemap: 'https://slavavisuals.com/sitemap.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         //output: `/some-other-sitemap.xml`,

@@ -2,10 +2,12 @@ import React from 'react';
 import styled from "styled-components";
 import {Layout} from "../components";
 import Title from "../components/Title";
+import SEO from "../components/seo";
 
 const LicensePage = () => {
   return (
     <Wrapper>
+      <SEO title="Liability" description="Liability page"/>
       <Layout>
         {/*<Title title="License" />*/}
           <div className="section-center">

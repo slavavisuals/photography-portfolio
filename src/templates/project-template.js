@@ -37,7 +37,7 @@ const SingleProject = ({data, location}) => {
 
       <Wrapper>
 
-        <SEO title="Project"  description="project page"/>
+        <SEO title={name}  description={desc}/>
         <Layout>
             <ProjectBackground image={coverImage}>
               <article>

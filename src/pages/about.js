@@ -10,9 +10,9 @@ const AboutPage = () => {
 
   return (
     <Wrapper>
-      <SEO title="about me" />
+      <SEO title="About me" description="About Slava Visuals"/>
       <Layout>
-          <Title title="About Me"/>
+          <Title title="About Me" />
           <div className="section-center">
             <article>
               <p>I am a Toronto based Professional Photographer who creates an experience for you where you look
