@@ -4,7 +4,7 @@ import { Layout } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "gatsby-image";
 import Title from "../components/Title";
-import SEO from "../components/seo"
+import SEO from "../components/seo";
 
 const AboutPage = () => {
 

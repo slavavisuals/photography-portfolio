@@ -5,12 +5,27 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import Image from "gatsby-image";
 import ProjectBackground from "../components/ProjectBackground";
+import SEO from "../components/seo";
+import {DiscussionEmbed} from "disqus-react";
+import { FaFacebookSquare, FaTwitterSquare, FaWhatsappSquare, FaTelegram } from "react-icons/fa"
 
 
 
-const SingleProject = ({data}) => {
+const SingleProject = ({data, location}) => {
   //console.log(data.project.nodes.data);
+  const url = location.href ? location.href : '';
+
+  console.log(data);
+
   const {postMarkdown, name, desc} = data.project.nodes[0].data;
+
+
+  const discussShortname = 'slavavisuals';
+  const discussConfig = {
+    identifier: data.project.nodes[0].id,
+    title: name,
+    url: url
+  }
 
 
   const coverImage = data.project.nodes[0].data.cover_photo.localFiles[0].childImageSharp.fluid;
@@ -19,7 +34,10 @@ const SingleProject = ({data}) => {
   //console.log(projectPhotos.notes);
 
   return (
+
       <Wrapper>
+
+        <SEO title="Project"  description="project page"/>
         <Layout>
             <ProjectBackground image={coverImage}>
               <article>
@@ -45,6 +63,24 @@ const SingleProject = ({data}) => {
                 )
               })}
             </div>
+
+
+
+          <ul>
+            <li>
+              <a href={"https://www.facebook.com/sharer/sharer.php?u=" + url} className="facebook"><FaFacebookSquare  className="icon"/></a>
+            </li>
+            <li>
+              <a href={"https://twitter.com/share?url=" + url}><FaTwitterSquare className="icon" /></a>
+            </li>
+            <li>
+              <a href={"href=whatsapp://send?text=" + url}><FaWhatsappSquare className="icon" /></a>
+            </li>
+            <a href={"https://telegram.me/share/url?url=" + url}><FaTelegram className="icon" /></a>
+          </ul>
+
+          <DiscussionEmbed shortname={discussShortname} config={discussConfig} />
+
         </Layout>
       </Wrapper>
   )
@@ -55,6 +91,7 @@ export const query = graphql`
   query GetSingleBlog($slug: String!){
     project: allAirtable(filter: {data: {slug: {eq: $slug}}}) {
       nodes {
+        id
         data {
           project_photos {
             id
@@ -214,13 +251,22 @@ const Wrapper = styled.section`
       background: var(--clr-primary-7);
     }
     .image-post{
-      p{
+      p {
           margin-top: 1rem;
           line-height: 2;
         }
+      img {      
+        pointer-events: none;
+      }
     }      
     
   }
+  
+   .icon {
+      font-size: 3rem;
+      margin-top: 1rem;
+      color: var(--clr-primary-5);
+    }
   
 `
 
