@@ -10,7 +10,7 @@ module.exports = {
     titleTemplate: `%s | Slavavisuals - Photography Portfolio`,
     url: `https://slavavisuals.com/`,
     siteUrl: `https://slavavisuals.com`,
-    image: `images/mainBcg.jpg`,
+    image: `mainBcg.jpg`,
     twitterUsername: `@slavavisuals`,
   },
   plugins: [
