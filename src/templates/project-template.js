@@ -62,24 +62,26 @@ const SingleProject = ({data, location}) => {
                   </div>
                 )
               })}
+
+              <ul className="social-buttons">
+                <li>
+                  <a href={"https://www.facebook.com/sharer/sharer.php?u=" + url} className="facebook"><FaFacebookSquare  className="icon"/></a>
+                </li>
+                <li>
+                  <a href={"https://twitter.com/share?url=" + url}><FaTwitterSquare className="icon" /></a>
+                </li>
+                <li>
+                  <a href={"href=whatsapp://send?text=" + url}><FaWhatsappSquare className="icon" /></a>
+                </li>
+                <li>
+                  <a href={"https://telegram.me/share/url?url=" + url}><FaTelegram className="icon" /></a>
+                </li>
+
+              </ul>
+
+              <DiscussionEmbed shortname={discussShortname} config={discussConfig} />
+
             </div>
-
-
-
-          <ul>
-            <li>
-              <a href={"https://www.facebook.com/sharer/sharer.php?u=" + url} className="facebook"><FaFacebookSquare  className="icon"/></a>
-            </li>
-            <li>
-              <a href={"https://twitter.com/share?url=" + url}><FaTwitterSquare className="icon" /></a>
-            </li>
-            <li>
-              <a href={"href=whatsapp://send?text=" + url}><FaWhatsappSquare className="icon" /></a>
-            </li>
-            <a href={"https://telegram.me/share/url?url=" + url}><FaTelegram className="icon" /></a>
-          </ul>
-
-          <DiscussionEmbed shortname={discussShortname} config={discussConfig} />
 
         </Layout>
       </Wrapper>
@@ -258,7 +260,17 @@ const Wrapper = styled.section`
       img {      
         pointer-events: none;
       }
-    }      
+    } 
+    .social-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      margin-bottom: 3rem;
+      align-items: center;
+      justify-content: center;
+      li {
+        text-align: center;
+      }
+    }     
     
   }
   
